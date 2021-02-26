@@ -74,9 +74,10 @@ class RouteRegistrar
             'uses' => 'AccessTokenController@issueToken',
             'as' => 'passport.token',
             'middleware' => 'throttle',
+            'prefix' => '',
         ]);
 
-        $this->router->group(['middleware' => ['web', 'auth']], function ($router) {
+        $this->router->group(['middleware' => ['web', 'auth'], 'prefix' => ''], function ($router) {
             $router->get('/tokens', [
                 'uses' => 'AuthorizedAccessTokenController@forUser',
                 'as' => 'passport.tokens.index',
