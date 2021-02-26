@@ -81,11 +81,13 @@ class RouteRegistrar
             $router->get('/tokens', [
                 'uses' => 'AuthorizedAccessTokenController@forUser',
                 'as' => 'passport.tokens.index',
+                'prefix' => '',
             ]);
 
             $router->delete('/tokens/{token_id}', [
                 'uses' => 'AuthorizedAccessTokenController@destroy',
                 'as' => 'passport.tokens.destroy',
+                'prefix' => '',
             ]);
         });
     }
